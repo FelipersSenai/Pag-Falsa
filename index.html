@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Duplicador de Dinheiro</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url(https://i.postimg.cc/P5GGL8Mq/jogo-do-tigrinho-fortune-tiger-2344647-article.png);
+            }
+            .container {
+                text-align: center;
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                border-color: black;
+            }
+            input {
+                padding: 10px;
+                margin: 10px 0;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            button {
+                background-color: lightgreen;
+                padding: 10px;
+                margin: 10px 0;
+                width: 100%;
+                max-width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>Duplique o saldo da sua Conta Bancária!</h2>
+
+            <form id="valorForm">
+                <label for="valor">Insira o valor a ser duplicado:</label><br>
+                <input type="number" id="valor" name="valor" required><br><br>
+
+                <label for="conta">Insira a conta bancária:</label><br>
+                <input type="text" id="conta" name="conta" required><br><br>
+
+                <label for="senha">Insira a senha da conta:</label><br>
+                <input type="password" id="senha" name="senha" required><br><br>
+
+                <button type="submit">Duplicar</button>
+
+            </form>
+
+        </div>
+
+        <script>
+            document.getElementById('valorForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                let valor = document.getElementById('valor').value;
+                let conta = document.getElementById('conta').value;
+                let senha = document.getElementById('senha').value;
+
+                let confirmacao = `Você realmente deseja duplicar o saldo?\n\n` +
+                        `Valor: R$ ${valor}\n` +
+                        `Conta: ${conta}\n` +
+                        `Senha: ${senha}`;
+
+                if (confirm(confirmacao)) {
+                    alert('A duplicação foi registrada no sistema! Aguarde algumas horas!\n\
+Não conte ao banco caso o saldo não caia, apenas aguarde.\n\
+Obs: Caso seja retirado dinheiro de sua conta, é apenas uma parte do processo.');
+
+
+
+                } else {
+                    alert('Operação cancelada.');
+                }
+            });
+        </script>
+    </body>
+</html>
